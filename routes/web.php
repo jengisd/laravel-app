@@ -13,10 +13,10 @@ Route::view('/about', 'about');
 
 Route::get('/users', function () {
     $users = DB::select('select * from users');
-    return view('users' , ['users' => $users]);
+    return view('users.index' , ['users' => $users]);
 });
 
 Route::get('/users/{id}', function ($id) {
     $user = DB::selectOne('select * from users where id = ?', [$id]);
-    return view('user' , ['user' => $user]);
+    return view('users.show' , ['user' => $user]);
 });
